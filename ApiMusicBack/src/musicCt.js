@@ -2,6 +2,8 @@ import { MusicMd } from "./musicMd.js";
 
 
 export class MusicCt{
+
+//-----------TODO-------------------
 static async getAll (req,res){
     const{artist} = req.query;
     const musics = await MusicMd.getAll
