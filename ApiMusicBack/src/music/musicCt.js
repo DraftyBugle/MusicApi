@@ -14,14 +14,14 @@ static async getAll (req,res){
     res.status(404).json({message:"Music Not FOUND"})
 }
 //--------------Busqueda por ID ----------------------------
-
 static async getById (req,res){
-    const{id} = req.params;
+    const{id} = req.params
+  
 
-    const isValidateID = validateId(id);
+    const isValidateID = validateId({id})
    
     if(!isValidateID.success)
-   return res.status(422).json({message:"ID no valit"})
+   return res.status(404).json({message:"ID no valit"})
 
    const musics = await MusicMd.getById(id);
     
@@ -30,7 +30,6 @@ static async getById (req,res){
 
     res.status(200).json(musics)
 }
-
 //-----------------Subir -----------------------------------
 
 }
