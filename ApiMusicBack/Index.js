@@ -1,6 +1,6 @@
 import  express  from "express";
 import { connection } from "./db_config.js";
-import {router as musicRT } from "./src/musicRt.js"
+import {router as musicRT } from "./src/music/musicRt.js"
 import cors from "cors";
 
 const PORT = process.env.PORT ?? 3000; // puerto por en variable de entorno o en el 3000
