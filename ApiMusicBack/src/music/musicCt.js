@@ -30,6 +30,38 @@ static async getById (req,res){
 
     res.status(200).json(musics)
 }
-//-----------------Subir -----------------------------------
+//-----------------Borrar -----------------------------------
+
+static async deleOne (req,res){
+    const{id} = req.params
+  
+
+    const isValidateID = validateId({id})
+   
+    if(!isValidateID.success)
+   return res.status(404).json({message:"ID no valit"})
+
+   const result = await MusicMd.deleOne(id);
+    
+   if(!result)
+    return res.status(404).json({message:"Music Not FOUND"})
+
+    res.status(200).json({message:"Music Delete"})
+
+  
+}
+//------------------Agregar uno--------------------------
+static async addOne (req,res){
+
+  const musicCreated = await MusicMd.addOne(req.body);
+musicCreated 
+?
+res.status(201).json({message:"Music Created"})
+:
+res.status(500).json({message:"Internal Server Error"})
+
+}
+
+
 
 }
